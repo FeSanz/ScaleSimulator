@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simulador de Básculas (Windows)
 
 Simula básculas que hablan por TCP/IP. Hoy: **Radwag PUE 7.1 / HY10** (protocolo CBCP-03,
@@ -76,3 +77,7 @@ firma con un certificado local autofirmado (`CN=ScaleSimulator Dev Signing`, en 
 deja la parte pública en `dist\ScaleSimulator-Signing.cer`. Para que **esta PC** (o cualquier otra) lo acepte,
 ejecuta una vez `tools\trust-signing-cert.ps1`. Para distribuirlo fuera de tu equipo lo ideal es un certificado
 de firma de código comercial.
+=======
+# ScaleSimulator
+Aplicacion para simulacion de basculas
+>>>>>>> 99f61f305a521e681266559970b1fbac0761b09b

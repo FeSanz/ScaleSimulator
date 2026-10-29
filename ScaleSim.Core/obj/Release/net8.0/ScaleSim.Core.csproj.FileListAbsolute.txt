@@ -1,0 +1,11 @@
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\bin\Release\net8.0\ScaleSim.Core.deps.json
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\bin\Release\net8.0\ScaleSim.Core.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\bin\Release\net8.0\ScaleSim.Core.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.AssemblyInfoInputs.cache
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.AssemblyInfo.cs
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\refint\ScaleSim.Core.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ScaleSim.Core.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Core\obj\Release\net8.0\ref\ScaleSim.Core.dll

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de Básculas</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 20h14l-1.6-9H6.6z"/><path d="M9 11V8a3 3 0 0 1 6 0v3"/><path d="M12 14v2"/>
+      </svg>
+      <span>Simulador de Básculas</span>
+    </div>
+    <nav id="tabs" aria-label="Básculas"></nav>
+    <button id="add-btn" class="btn ghost" type="button" title="Dar de alta otra báscula">＋ Agregar</button>
+    <span class="spacer"></span>
+    <span id="version" class="muted small"></span>
+    <button id="theme-btn" class="icon-btn" type="button" title="Cambiar tema">◐</button>
+  </header>
+
+  <div id="empty" class="empty" hidden>
+    <h2>No hay básculas</h2>
+    <p class="muted">Da de alta una báscula para empezar a recibir comandos.</p>
+    <button class="btn primary" type="button" id="empty-add">＋ Agregar báscula</button>
+  </div>
+
+  <main id="main" hidden>
+    <section class="col">
+      <div class="card display-card" id="display-card">
+        <div class="badges">
+          <span id="b-stable" class="badge ok">ESTABLE</span>
+          <span id="b-net" class="badge">NETO</span>
+          <span id="b-tare" class="badge warn" hidden>TARA</span>
+          <span id="b-mode" class="badge info"></span>
+          <span class="spacer"></span>
+          <label id="platform-wrap" class="inline" hidden>Plataforma
+            <select id="platform-select"></select>
+          </label>
+        </div>
+        <div class="lcd" id="lcd" aria-live="off">
+          <span id="lcd-sign" class="lcd-sign"></span><span id="lcd-value" class="lcd-value">0.00</span><span id="lcd-unit" class="lcd-unit">kg</span>
+        </div>
+        <div class="lcd-sub">
+          <span>Bruto <b id="sub-gross">0.00</b></span>
+          <span>Tara <b id="sub-tare">0.00</b></span>
+          <span id="sub-name" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Carga en la plataforma <span class="muted small">(<span id="base-unit-label">kg</span>, unidad base)</span></h3>
+        <div class="load-row">
+          <input id="load-input" type="number" min="0" step="any" inputmode="decimal" aria-label="Carga">
+          <button class="btn" type="button" id="random-btn" title="Valor aleatorio">🎲 Aleatorio</button>
+          <button class="btn" type="button" id="empty-btn" title="Quitar toda la carga">Quitar carga</button>
+        </div>
+        <input id="load-slider" type="range" min="0" max="100" step="0.01" value="0" aria-label="Carga (deslizador)">
+        <div class="chips" id="step-chips">
+          <button type="button" data-delta="-100">−100</button>
+          <button type="button" data-delta="-10">−10</button>
+          <button type="button" data-delta="-1">−1</button>
+          <button type="button" data-delta="-0.1">−0.1</button>
+          <button type="button" data-delta="0.1">+0.1</button>
+          <button type="button" data-delta="1">+1</button>
+          <button type="button" data-delta="10">+10</button>
+          <button type="button" data-delta="100">+100</button>
+        </div>
+        <div class="chips" id="preset-chips">
+          <span class="muted small">Cargas rápidas</span>
+          <button type="button" data-value="1">1</button>
+          <button type="button" data-value="5">5</button>
+          <button type="button" data-value="10">10</button>
+          <button type="button" data-value="25">25</button>
+          <button type="button" data-value="50">50</button>
+          <button type="button" data-value="100">100</button>
+          <button type="button" data-value="500">500</button>
+          <button type="button" data-value="1000">1000</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Controles de la báscula</h3>
+        <div class="btn-row">
+          <button class="btn" type="button" id="zero-btn" title="Equivale al comando Z">→0← Cero</button>
+          <button class="btn" type="button" id="tare-btn" title="Equivale al comando T">Tara</button>
+          <button class="btn ghost" type="button" id="clear-tare-btn">Borrar tara</button>
+        </div>
+        <div class="form-grid">
+          <label class="switch-line"><input type="checkbox" id="stable-check"> <span>Lectura estable</span></label>
+          <label>Unidad actual <select id="unit-select"></select></label>
+          <label>Modo de trabajo <select id="mode-select"></select></label>
+        </div>
+        <p class="muted small" id="stable-hint">Si desmarcas «Lectura estable», S/SU/Z/T esperan hasta agotar el tiempo (respuesta _E) y SI/SUI responden con «?».</p>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card">
+        <div class="conn-head">
+          <span id="conn-dot" class="dot"></span>
+          <b id="conn-text">Detenido</b>
+          <span class="spacer"></span>
+          <button class="btn" type="button" id="server-btn">Detener</button>
+          <button class="btn" type="button" id="settings-btn">⚙ Ajustes</button>
+        </div>
+        <div id="conn-error" class="error-line" hidden></div>
+        <div class="muted small">Conecta tu software a una de estas direcciones (TCP):</div>
+        <ul id="ip-list" class="ip-list"></ul>
+        <div class="clients">
+          <span class="muted small">Clientes conectados: <b id="client-count">0</b></span>
+          <ul id="client-list" class="client-list"></ul>
+        </div>
+      </div>
+
+      <div class="card console-card">
+        <div class="console-head">
+          <h3>Consola del protocolo</h3>
+          <span class="spacer"></span>
+          <label class="inline small"><input type="checkbox" id="show-cont"> Transmisión continua</label>
+          <label class="inline small"><input type="checkbox" id="autoscroll" checked> Auto-scroll</label>
+          <button class="btn ghost small" type="button" id="copy-log">Copiar</button>
+          <button class="btn ghost small" type="button" id="clear-log">Limpiar</button>
+        </div>
+        <div id="log" class="log" role="log"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="settings-dialog">
+    <form method="dialog" id="settings-form">
+      <h2>Ajustes de la báscula</h2>
+      <div class="model-line muted small" id="s-model"></div>
+      <div class="form-grid cols2">
+        <label>Nombre <input name="name" type="text" maxlength="40" required></label>
+        <label>Puerto TCP <input name="port" type="number" min="1" max="65535" required></label>
+        <label>Unidad base <select name="baseUnit"></select></label>
+        <label>Capacidad máxima <input name="maxCapacity" type="number" min="0.001" step="any" required></label>
+        <label>Decimales <input name="decimals" type="number" min="0" max="5" required></label>
+        <label>Plataformas <input name="platforms" type="number" min="1" max="4" required></label>
+        <label>Número de serie (NB) <input name="serialNumber" type="text" maxlength="30"></label>
+      </div>
+      <h3>Tiempos de respuesta (ms)</h3>
+      <div class="form-grid cols2">
+        <label>Espera de estabilización (S, SU, SS) <input name="stabilizationMs" type="number" min="0" required></label>
+        <label>Duración de la tara (T) <input name="tareMs" type="number" min="0" required></label>
+        <label>Duración de la puesta a cero (Z) <input name="zeroMs" type="number" min="0" required></label>
+        <label>Tiempo límite de estabilidad (→ _E) <input name="stabilityTimeoutMs" type="number" min="0" required></label>
+        <label>Intervalo de transmisión continua <input name="continuousIntervalMs" type="number" min="20" required></label>
+      </div>
+      <label class="switch-line"><input type="checkbox" name="unavailable"> <span>Simular báscula ocupada (los comandos responden «_I»)</span></label>
+      <div id="s-extra">
+        <h3>Formato específico del modelo</h3>
+        <div id="s-extra-fields" class="form-grid"></div>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn danger" type="button" id="s-delete">Eliminar báscula</button>
+        <span class="spacer"></span>
+        <button class="btn ghost" type="button" id="s-cancel">Cancelar</button>
+        <button class="btn primary" type="submit" value="save">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="add-dialog">
+    <form method="dialog" id="add-form">
+      <h2>Agregar báscula</h2>
+      <div id="model-list" class="model-list"></div>
+      <label>Nombre (opcional) <input id="add-name" type="text" maxlength="40" placeholder="Se asigna automáticamente"></label>
+      <div class="dialog-actions">
+        <span class="spacer"></span>
+        <button class="btn ghost" type="button" id="add-cancel">Cancelar</button>
+        <button class="btn primary" type="submit" value="add">Agregar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.csproj.AssemblyReference.cache
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.AssemblyInfoInputs.cache
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.AssemblyInfo.cs
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.csproj.CoreCompileInputs.cache
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\bin\Debug\net8.0\ScaleSim.Radwag.deps.json
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\bin\Debug\net8.0\ScaleSim.Radwag.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\bin\Debug\net8.0\ScaleSim.Radwag.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\bin\Debug\net8.0\ScaleSim.Core.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\bin\Debug\net8.0\ScaleSim.Core.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.0CEC6A50.Up2Date
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\refint\ScaleSim.Radwag.dll
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ScaleSim.Radwag.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\ScaleSim.Radwag\obj\Debug\net8.0\ref\ScaleSim.Radwag.dll

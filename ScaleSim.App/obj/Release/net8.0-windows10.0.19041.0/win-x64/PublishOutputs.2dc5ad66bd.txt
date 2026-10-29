@@ -1,0 +1,10 @@
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\ScaleSimulator.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\wwwroot\app.css
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\wwwroot\app.js
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\wwwroot\index.html
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\ScaleSim.Core.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\ScaleSim.Radwag.pdb
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\Microsoft.Web.WebView2.Core.xml
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Felipe\Documents\Scales\ScaleSimulator\dist\staging\ScaleSimulator.exe

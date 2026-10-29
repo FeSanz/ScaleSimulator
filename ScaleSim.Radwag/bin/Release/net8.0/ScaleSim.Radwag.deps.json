@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ScaleSim.Radwag/1.0.0": {
+        "dependencies": {
+          "ScaleSim.Core": "1.0.0"
+        },
+        "runtime": {
+          "ScaleSim.Radwag.dll": {}
+        }
+      },
+      "ScaleSim.Core/1.0.0": {
+        "runtime": {
+          "ScaleSim.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ScaleSim.Radwag/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ScaleSim.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

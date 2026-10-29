@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/ScaleSim.App/">
+    <Project Path="ScaleSim.App/ScaleSimulator.App.csproj" />
+  </Folder>
+  <Project Path="ScaleSim.Core/ScaleSim.Core.csproj" />
+  <Project Path="ScaleSim.Radwag/ScaleSim.Radwag.csproj" />
+  <Project Path="ScaleSim.Tests/ScaleSim.Tests.csproj" />
+</Solution>

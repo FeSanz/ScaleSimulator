@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ScaleSimulator</AssemblyName>
+    <RootNamespace>ScaleSim.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <Product>Simulador de Básculas</Product>
+    <Authors>Felipe</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ScaleSim.Core\ScaleSim.Core.csproj" />
+    <ProjectReference Include="..\ScaleSim.Radwag\ScaleSim.Radwag.csproj" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2957.106" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The UI is plain HTML/CSS/JS served to WebView2 from this folder through a virtual host. -->
+    <Content Include="wwwroot\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Resource Include="app.ico" />
+  </ItemGroup>
+
+  <!-- Windows 11 Smart App Control blocks unsigned locally-built exes; sign the build output with
+       the local dev certificate (see sign.ps1). Harmless no-op when no certificate is installed. -->
+  <Target Name="SignOutputAssemblies" AfterTargets="Build" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildThisFileDirectory)sign.ps1&quot; -TargetDir &quot;$(TargetDir.TrimEnd('\'))&quot;" ContinueOnError="true" />
+  </Target>
+
+</Project>
